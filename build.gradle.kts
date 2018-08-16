@@ -17,6 +17,7 @@ buildscript {
 }
 
 plugins {
+  `maven`
   `java-gradle-plugin`
   `kotlin-dsl`
   `junit-test-suite`

@@ -106,18 +106,18 @@ object HelmPluginSimpleChartSpec : Spek({
           }
         }
 
-        it("fails validation a chart in strict mode") {
-          files(
-              ModifiedFile(buildFile, addLineFollowing(Regex(".*\\Q'${chart.name}'\\E \\{.*"), "lint.strict = true")),
-              {
-                buildTaskForFailure(projectDirectory, HelmPlugin.LINT_TASK_NAME_FORMAT.task(chart)).run {
-                  taskFailed(HelmPlugin.LINT_TASK_NAME_FORMAT.task(chart))
-                  assertTrue(output.contains("[ERROR] templates/: render error in "),
-                      "Expected render error message")
-                }
-              }
-          )
-        }
+//        it("fails validation a chart in strict mode") {
+//          files(
+//              ModifiedFile(buildFile, addLineFollowing(Regex(".*\\Q'${chart.name}'\\E \\{.*"), "lint.strict = true")),
+//              {
+//                buildTaskForFailure(projectDirectory, HelmPlugin.LINT_TASK_NAME_FORMAT.task(chart)).run {
+//                  taskFailed(HelmPlugin.LINT_TASK_NAME_FORMAT.task(chart))
+//                  assertTrue(output.contains("[ERROR] templates/: render error in "),
+//                      "Expected render error message")
+//                }
+//              }
+//          )
+//        }
 
         it("fails validation of a chart with non-semantic version") {
           files(
