@@ -199,7 +199,7 @@ open class HelmChart(val name: String, private val project: Project, private val
 
 @Suppress("MemberVisibilityCanBePrivate")
 open class HelmInstallation @Inject constructor(private val project: Project) {
-  var version: String by DefaultingDelegate { "v2.10.0-rc3" }
+  var version: String by DefaultingDelegate { "v2.10.0-rc.3" }
   var os: OperatingSystem by DefaultingDelegate { OperatingSystem.detect() }
   var helmFilename: String by DefaultingDelegate { os.filename(this) }
   var url: String by DefaultingDelegate { os.url(this) }
